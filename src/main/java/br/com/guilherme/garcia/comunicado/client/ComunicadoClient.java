@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import br.com.guilherme.garcia.comunicado.dto.Comunicado;
 
-@FeignClient(name="crud-service")
+@FeignClient(name="zuul-api-gateway-server")
 @RibbonClient(name="crud-service")
 public interface ComunicadoClient {
 	
-	@GetMapping("/comunicado/all")
+	@GetMapping("/crud-service/comunicado/all")
 	public List<Comunicado> getAllComunicados();
 
 }
