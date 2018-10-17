@@ -4,12 +4,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
+import br.com.guilherme.garcia.comunicado.client.ComunicadoClient;
+
 @SpringBootApplication
-//@EnableFeignClients("br.com.guilherme.garcia.comunicado")
 @EnableDiscoveryClient
+@EnableFeignClients(basePackageClasses = ComunicadoClient.class)
+@ComponentScan(basePackageClasses = ComunicadoClient.class)
 public class ComunicadoApplication {
 
 	public static void main(String[] args) {
