@@ -23,6 +23,7 @@ public class ComunicadoController {
 	
 	@GetMapping("/feign/all")
 	public List<Comunicado> getAll(){
+		logger.info("Realizara uma chamada para outro microservice");
 		return comunicadoClient.getAllComunicados();
 	}
 	
