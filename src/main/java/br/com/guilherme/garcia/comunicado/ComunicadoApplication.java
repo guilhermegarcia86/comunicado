@@ -6,8 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients("br.com.guilherme.garcia.comunicado")
 @EnableDiscoveryClient
+@EnableFeignClients
 public class ComunicadoApplication {
 
 	public static void main(String[] args) {
