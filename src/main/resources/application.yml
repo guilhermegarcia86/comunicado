@@ -17,3 +17,8 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+    
+grpc:
+  client:
+    crud-service:
+      negotiationType: PLAINTEXT

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package br.com.guilherme.garcia.comunicado.grpc;
+
+message Comunicado {
+  string id = 1;
+  string texto = 2;
+}
+
+
+service ComunicadoService {
+  rpc addComunicado (Comunicado) returns (Comunicado);
+}

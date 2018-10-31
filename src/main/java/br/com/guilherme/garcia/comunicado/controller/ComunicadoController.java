@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.guilherme.garcia.comunicado.dto.Comunicado;
+import br.com.guilherme.garcia.comunicado.service.ComunicadoGRPC;
 import br.com.guilherme.garcia.comunicado.service.ComunicadoService;
+
 
 @RestController
 public class ComunicadoController {
@@ -15,9 +17,18 @@ public class ComunicadoController {
 	@Autowired
 	private ComunicadoService comunicadoService;
 	
+	@Autowired
+	private ComunicadoGRPC comunicadoGRPC;
+	
 	@PostMapping("add")
 	public ResponseEntity<Comunicado> add(@RequestBody Comunicado comunicado) {
 		return ResponseEntity.ok(comunicadoService.add(comunicado));
+	}
+	
+	@PostMapping("grpc")
+	public ResponseEntity<Comunicado> addGrpc(@RequestBody Comunicado comunicado) {
+				
+		return ResponseEntity.ok(comunicadoGRPC.addComunicado(comunicado));
 	}
 
 }
